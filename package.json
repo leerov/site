@@ -23,7 +23,6 @@
     "react-dom": "^18.3.1",
     "sass": "^1.77.8",
     "sequelize": "^6.37.3",
-    "sqlite3": "^5.1.7",
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
