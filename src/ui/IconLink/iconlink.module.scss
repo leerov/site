@@ -1,0 +1,17 @@
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+
+  .icon {
+    font-size: 1.2em;
+  }
+}
