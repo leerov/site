@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.18.0",
+    "prisma": "^5.18.0",
     "@types/cookies": "^0.9.0",
     "cookies": "^0.9.1",
     "framer-motion": "^11.3.24",

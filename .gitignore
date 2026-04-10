@@ -1,46 +1,7 @@
 ```
-# Dependencies
 node_modules/
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Logs and temp files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
-*.tmp
-
-# Editors
-.vscode/
-.idea/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-
-# Build directories
-build/
-dist/
-*.egg-info/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Testing
-.coverage
-htmlcov/
-.coverage.*
-.nyc_output/
-coverage-final.json
-
-# IDE
-*.swp
-*.swo
-*~
 ```
