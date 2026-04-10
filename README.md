@@ -1,72 +1,154 @@
-Это [Next.js](https://nextjs.org/) проект, загружаемый с помощью [`create-next-app`] Это [Next.js](https://nextjs.org/) проект, загружаемый с помощью [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Leerov - Next.js Application
 
-## Начало работы
+Современное веб-приложение на Next.js 14 с интеграцией Telegram бота.
 
-Сначала запустите сервер разработки:
+## 🚀 Быстрый старт
 
-```bash
-npm run dev
-# или
-yarn dev
-# или
-pnpm dev
-# или
-bun dev
-```
-
-Откройте [http://localhost:3000](http://localhost:3000) в своем браузере, чтобы увидеть результат.
-
-Вы можете начать редактирование страницы, изменив "app/page.tsx". Страница автоматически обновляется по мере редактирования файла.
-
-В этом проекте используется [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) для автоматической оптимизации и загрузки пользовательского шрифта Google Inter.
-
-## Подробнее
-
-Чтобы узнать больше о Next.js, ознакомьтесь со следующими ресурсами:
-
-- [Next.js Документация](https://nextjs.org/docs) - узнайте о Next.js функциях и API.
-- [Изучить Next.js](https://nextjs.org/learn) - интерактивное Next.js руководство.
-
-Вы можете ознакомиться с [репозиторием Next.js GitHub](https://github.com/vercel/next.js/) - мы приветствуем ваши отзывы и предложения!
-
-## Развертывание на Vercel
-
-Самый простой способ развернуть ваше приложение Next.js - это использовать [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) от создателей Next.js.
-
-Ознакомьтесь с нашей [Next.js документацией по развертыванию](https://nextjs.org/docs/deployment) для получения более подробной информации.
-(https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Начало работы
-
-Сначала запустите сервер разработки:
+### Установка зависимостей
 
 ```bash
-npm run dev
-# или
-yarn dev
-# или
-pnpm dev
-# или
-bun dev
+npm install
 ```
 
-Откройте [http://localhost:3000](http://localhost:3000) в своем браузере, чтобы увидеть результат.
+### Настройка окружения
 
-Вы можете начать редактирование страницы, изменив "app/page.tsx". Страница автоматически обновляется по мере редактирования файла.
+Скопируйте файл `.env.example` в `.env` и заполните переменные:
 
-В этом проекте используется [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) для автоматической оптимизации и загрузки пользовательского шрифта Google Inter.
+```bash
+cp .env.example .env
+```
 
-## Подробнее
+### Локальная разработка
 
-Чтобы узнать больше о Next.js, ознакомьтесь со следующими ресурсами:
+```bash
+# Генерация Prisma клиента
+npx prisma generate
 
-- [Next.js Документация](https://nextjs.org/docs) - узнайте о Next.js функциях и API.
-- [Изучить Next.js](https://nextjs.org/learn) - интерактивное Next.js руководство.
+# Запуск development сервера
+npm run dev
+```
 
-Вы можете ознакомиться с [репозиторием Next.js GitHub](https://github.com/vercel/next.js/) - мы приветствуем ваши отзывы и предложения!
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
-## Развертывание на Vercel
+## 📦 Деплой на Vercel
 
-Самый простой способ развернуть ваше приложение Next.js - это использовать [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) от создателей Next.js.
+Этот проект полностью готов к деплою на Vercel.
 
-Ознакомьтесь с нашей [Next.js документацией по развертыванию](https://nextjs.org/docs/deployment) для получения более подробной информации.
+### Шаг 1: Подготовка базы данных
+
+Проект использует PostgreSQL. Создайте базу данных в одном из сервисов:
+- [Neon](https://neon.tech) (рекомендуется)
+- [Supabase](https://supabase.com)
+- [Railway](https://railway.app)
+- [Vercel Postgres](https://vercel.com/postgres)
+
+Получите строку подключения `DATABASE_URL`.
+
+### Шаг 2: Настройка переменных окружения в Vercel
+
+В панели управления Vercel добавьте:
+
+| Переменная | Описание |
+|------------|----------|
+| `DATABASE_URL` | Строка подключения к PostgreSQL |
+| `TELEGRAM_BOT_TOKEN` | Токен Telegram бота от @BotFather |
+| `BOT_NAME` | Имя вашего Telegram бота |
+| `VERCEL_URL` | URL приложения (заполняется после первого деплоя) |
+
+### Шаг 3: Деплой
+
+#### Вариант A: Через GitHub (рекомендуется)
+
+1. Запушьте код в GitHub репозиторий
+2. В панели Vercel нажмите "Add New Project"
+3. Импортируйте ваш репозиторий
+4. Добавьте переменные окружения
+5. Нажмите "Deploy"
+
+#### Вариант B: Через Vercel CLI
+
+```bash
+# Установка Vercel CLI
+npm install -g vercel
+
+# Логин
+vercel login
+
+# Деплой
+vercel --prod
+```
+
+### Шаг 4: Настройка Telegram Webhook
+
+После деплоя настройте webhook для получения обновлений от Telegram:
+
+```bash
+curl -X POST https://your-app.vercel.app/api/setWebhook
+```
+
+Или отправьте POST запрос через любой HTTP клиент на endpoint `/api/setWebhook`.
+
+## 🛠 Технологии
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Database**: PostgreSQL + Prisma ORM
+- **Styling**: SCSS
+- **Animations**: Framer Motion
+- **Bot Integration**: Telegraf
+- **Hosting**: Vercel
+
+## 📁 Структура проекта
+
+```
+├── src/
+│   ├── app/              # Next.js App Router
+│   │   ├── api/          # API routes
+│   │   │   ├── telegramBot/  # Webhook handler
+│   │   │   └── setWebhook/   # Webhook setup
+│   │   └── [pages]/      # Страницы приложения
+│   ├── service/          # Бизнес-логика
+│   └── ui/               # UI компоненты
+├── prisma/
+│   └── schema.prisma     # Схема базы данных
+├── public/               # Статические файлы
+└── vercel.json           # Конфигурация Vercel
+```
+
+## 🔧 Скрипты
+
+| Команда | Описание |
+|---------|----------|
+| `npm run dev` | Запуск development сервера |
+| `npm run build` | Сборка проекта |
+| `npm run start` | Запуск production сервера |
+| `npm run lint` | Проверка кода ESLint |
+| `npx prisma generate` | Генерация Prisma клиента |
+| `npx prisma migrate dev` | Создание и применение миграций |
+| `npx prisma migrate deploy` | Применение миграций в production |
+
+## ⚙️ Конфигурация Vercel
+
+Файл `vercel.json` содержит настройки для деплоя:
+
+```json
+{
+  "buildCommand": "npx prisma generate && next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs"
+}
+```
+
+## 🔐 Безопасность
+
+- Не коммитьте файл `.env` в репозиторий
+- Используйте `.env.example` как шаблон
+- Храните токены и секреты в Vercel Environment Variables
+
+## 📝 Лицензия
+
+MIT License
+
+## 🤝 Поддержка
+
+Для вопросов и предложений создавайте Issues в репозитории.
