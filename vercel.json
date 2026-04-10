@@ -3,6 +3,5 @@
   "outputDirectory": ".next",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "crons": []
+  "framework": "nextjs"
 }
