@@ -1,4 +1,4 @@
-name: Deploy Site
+name: Deploy Site (Static)
 
 on:
   push:
@@ -20,12 +20,14 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Generate Prisma Client
+      - name: Generate Prisma Client (если нужен для сборки)
         run: bunx prisma generate
 
-      - name: Build project
-        run: bun run build
-        
+      - name: Build and export static site
+        run: |
+          bun run build
+          bun run export    # или next export
+
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
@@ -35,15 +37,7 @@ jobs:
         run: |
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy via rsync (только собранные файлы)
+      - name: Deploy static files to /var/www/leerov
         run: |
           rsync -avz --delete -e "ssh -p ${{ secrets.SSH_PORT }}" \
-            .next/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/site/.next/
-          rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}" \
-            package.json package-lock.json next.config.js \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:~/site/
-
-      - name: Restart application on server
-        run: |
-          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "cd ~/site && pm2 restart site || pm2 start npm --name site -- start"
+            ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/leerov/
