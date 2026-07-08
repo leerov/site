@@ -1,16 +1,15 @@
-// next.config.mjs
-
-/**
- * @type {import('next').NextConfig}
- */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-	// Другие настройки
-	distDir: 'out',
+  output: 'export',  // <-- обязательно
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api.telegram.org',
+      },
+    ],
+  },
+  // distDir: 'out' — можно убрать, т.к. export по умолчанию создаёт out/
+};
 
-	// Добавьте настройку для разрешенных доменов изображений
-	images: {
-		domains: ['api.telegram.org'],
-	},
-}
-
-export default nextConfig
+export default nextConfig;
