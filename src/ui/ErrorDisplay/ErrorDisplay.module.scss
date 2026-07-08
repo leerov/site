@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color; /* тот же фон, что и везде */
+  color: $text-color;
+}
+
+.content {
+  text-align: center;
+}
+
+.code {
+  font-size: clamp(6rem, 20vw, 12rem);
+  margin: 0;
+  line-height: 1;
+}
+
+.message {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.redirect {
+  margin-top: 2rem;
+  opacity: 0.7;
+  font-size: 1rem;
+}
