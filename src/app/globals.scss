@@ -44,13 +44,13 @@ a {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
-  background-color: #7C02C7;
+  background-color: $scrollbar-thumb;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #C057EF;
+  background-color: $scrollbar-thumb-hover;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #FE75FF;
+  background-color: $scrollbar-thumb-active;
 }

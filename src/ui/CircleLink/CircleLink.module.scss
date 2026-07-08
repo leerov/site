@@ -1,4 +1,45 @@
+// src/ui/CircleLink/CircleLink.module.scss
 @import '../../styles/variables';
+
+.circle {
+    margin: auto;
+    display: inline-block;
+    width: 63%;
+    height: 63%;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+.circle_border_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: $circle-border-gradient; 
+    background-size: 200% 200%;
+
+    -webkit-animation: gradient_anim 20s ease infinite;
+    -moz-animation: gradient_anim 20s ease infinite;
+    animation: gradient_anim 20s ease infinite;
+    -webkit-mask-image: radial-gradient(circle at center, transparent 45%, black 47%);
+    mask-image: radial-gradient(circle at center, transparent 45%, black 47%);
+}
+
+.circle_border_wrap:hover {
+    -webkit-animation: gradient_anim_hover 1s linear infinite;
+    -moz-animation: gradient_anim_hover 1s linear infinite;
+    animation: gradient_anim_hover 1s linear infinite;
+}
+
+.circle_center {
+    width: 63%;
+    height: 63%;
+    border-radius: 50%;
+    background-color: $bar-color;
+}
 
 @-webkit-keyframes gradient_anim {
     0% {
@@ -131,25 +172,4 @@
         background-position: 10% 0%;
         rotate: 405deg;
     }
-}
-
-.circle_center {
-    width: 63%;
-    height: 63%;
-    border-radius: 50%;
-    background-color: $background-color;
-}
-
-.circle_center {
-    width: 63%;
-    height: 63%;
-    border-radius: 50%;
-    background-color: $background-color;
-    position: relative;
-}
-
-.cancel {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
 }

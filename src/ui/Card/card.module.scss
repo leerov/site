@@ -1,6 +1,4 @@
-$bar-gradient: linear-gradient(rgb(97, 9, 164), rgb(45, 11, 71));
-$text-gradient: linear-gradient(rgb(97, 9, 164), rgb(45, 11, 71));
-$background-color: rgb(27, 3, 48);
+@import '../../styles/variables';
 
 .card {
     display: flex;
@@ -9,7 +7,7 @@ $background-color: rgb(27, 3, 48);
     height: 100%;
     padding: 1rem;
     padding-right: 0;
-    background: $bar-gradient;
+    background: $card-gradient;
     border-radius: 1rem;
     overflow-y: scroll;
 

@@ -1,6 +1,27 @@
 // src/styles/_variables.scss
+
+// Базовые цвета
 $background-color: rgb(29, 28, 36);
 $text-color: rgb(229, 222, 255);
+
+// Цвет для фона элементов (используется в Header и др.)
+$bar-color: rgb(97, 9, 164);   // <-- добавьте эту строку
+
+// Градиенты
 $button-gradient: linear-gradient(rgb(72, 66, 102), rgb(53, 47, 83), rgb(34, 28, 64));
-$bar-color: rgb(97, 9, 164);
 $bar-gradient: linear-gradient(rgb(72, 66, 102), rgb(34, 28, 64));
+
+// Цвета для карточек, хедера и т.д.
+$card-background: rgb(27, 3, 48);
+$card-gradient: linear-gradient(rgb(72, 66, 102), rgb(34, 28, 64));
+
+// Дополнительные градиенты для кнопок/обводок
+$button-hover-bg: radial-gradient(rgba(155, 23, 232, 0.48), rgba(92, 14, 138, 0));
+$circle-border-gradient: linear-gradient(rgb(124, 2, 199), rgb(192, 87, 239), rgb(254, 117, 255));
+
+// Цвета скроллбара
+$scrollbar-thumb: #7C02C7;
+$scrollbar-thumb-hover: #C057EF;
+$scrollbar-thumb-active: #FE75FF;
+
+$text-gradient: linear-gradient(rgb(97, 9, 164), rgb(45, 11, 71));
