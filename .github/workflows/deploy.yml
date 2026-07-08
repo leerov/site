@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Remove server-side API routes
+        run: rm -rf src/app/api
+
       - name: Build static site
         run: bun run build
 
@@ -44,7 +47,7 @@ jobs:
         run: |
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy static files to /var/www/leerov
+      - name: Deploy static files
         run: |
           rsync -avz --delete -e "ssh -p ${{ secrets.SSH_PORT }}" \
             ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/leerov/
