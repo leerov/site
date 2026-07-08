@@ -1,18 +1,10 @@
-import styles from "./page.module.scss";
-import type { Metadata } from "next";
-import Header from "@/ui/Header/header";
+import Page from "@/ui/Page/Page";
 
-export const metadata: Metadata = {
-    title: "Contacts",
-
-    description: "Personal site",
+export const metadata = {
+  title: "Contacts",
+  description: "Personal site",
 };
 
 export default function Contacts() {
-
-    return (
-        <main className={styles.main}>
-            <Header title='Contacts' />
-        </main>
-    );
+  return <Page title="Contacts" />;
 }

@@ -1,18 +1,10 @@
-import styles from "./page.module.scss";
-import type { Metadata } from "next";
-import Header from "@/ui/Header/header";
+import Page from "@/ui/Page/Page";
 
-export const metadata: Metadata = {
-    title: "Photos",
-
-    description: "Personal site",
+export const metadata = {
+  title: "Photos",
+  description: "Personal site",
 };
 
 export default function Photos() {
-
-    return (
-        <main className={styles.main}>
-            <Header title='Photos' />
-        </main>
-    );
+  return <Page title="Photos" />;
 }

@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+  // background-color: $background-color;
+}
+
+.default {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home {
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  gap: 1rem;
+}

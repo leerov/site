@@ -1,11 +1,8 @@
 $bar-color: rgb(97, 9, 164);
 $button-gradient: linear-gradient(rgb(124, 2, 199), rgb(192, 87, 239), rgb(254, 117, 255));
-$background-color: rgb(27, 3, 48);
+$background-color: rgba(0, 0, 0, 0);
 
 .ContentOnPage {
-	max-width: 100%;
-	overflow-x: hidden;
-	overflow-y: scroll;
 	background-color: $background-color;
 	display: grid;
 	grid-template-columns: 1fr 4fr 1fr;

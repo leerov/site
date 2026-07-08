@@ -1,5 +1,5 @@
-$background-color: rgb(27, 3, 48);
-$text-color: rgb(255, 255, 255);
+// src/app/globals.scss
+@import '../styles/variables';
 
 * {
   box-sizing: border-box;
@@ -27,18 +27,6 @@ a {
   }
 }
 
-main {
-  display: grid;
-  grid-template-rows: 4rem 1fr;
-  overflow-y: hiden;
-  padding: 1rem;
-  min-height: 100vh;
-  width: 100%;
-  height: 100%;
-  background-color: $background-color;
-  gap: 1rem
-}
-
 /* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
 /** {
   scrollbar-width: thin;
@@ -53,7 +41,6 @@ main {
 *::-webkit-scrollbar-track {
   border-radius: 0px;
 }
-
 
 *::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;

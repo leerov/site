@@ -1,5 +1,4 @@
-$button-gradient: linear-gradient(rgb(124, 2, 199), rgb(192, 87, 239), rgb(254, 117, 255));
-$background-color: rgb(27, 3, 48);
+@import '../../styles/variables';
 
 .main {
 	width: 100%;
@@ -184,14 +183,7 @@ $background-color: rgb(27, 3, 48);
 	width: 63%;
 	height: 63%;
 	border-radius: 50%;
-	background-color: $background-color;
-}
-
-.circle_center {
-	width: 63%;
-	height: 63%;
-	border-radius: 50%;
-	background-color: $background-color;
+	background-color: $bar-color;
 	position: relative;
 }
 

@@ -1,5 +1,4 @@
-$button-gradient: linear-gradient(rgb(124, 2, 199), rgb(192, 87, 239), rgb(254, 117, 255));
-$background-color: rgb(27, 3, 48);
+@import '../../styles/variables';
 
 .main {
     width: 100%;
@@ -247,8 +246,6 @@ $background-color: rgb(27, 3, 48);
     justify-content: center;
     flex-direction: column;
 }
-
-.button link Image {}
 
 .cancel {
     position: absolute;
