@@ -20,17 +20,8 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      # Удаляем серверные API-роуты, чтобы избежать ошибок при статическом экспорте
-      - name: Remove server-side API routes
-        run: rm -rf src/app/api
-
-      # Генерируем Prisma Client (если он нужен для клиентского кода, но лучше вообще убрать зависимость от prisma в клиенте)
-      - name: Generate Prisma Client (optional)
-        run: bunx prisma generate || true   # игнорируем ошибку, если prisma нет
-
-      - name: Build and export static site
-        run: |
-          bun run build   # создаст папку out/, если в next.config.js указано output: 'export'
+      - name: Build static site
+        run: bun run build
 
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
