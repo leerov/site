@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // <-- обязательно
+  output: 'export',
   images: {
     remotePatterns: [
       {
@@ -9,7 +9,6 @@ const nextConfig = {
       },
     ],
   },
-  // distDir: 'out' — можно убрать, т.к. export по умолчанию создаёт out/
 };
 
 export default nextConfig;
