@@ -14,10 +14,7 @@ export default function Card({
                 <div className={styles.content}>
                     {children}
                 </div>
-
-
             </div>
-
         </div>
     );
 }
