@@ -25,15 +25,19 @@ export default function Home() {
             <Avatar src="https://gravatar.com/userimage/268007450/e407f21c2b0cd306e1f0959df9fdef97.jpeg?size=524" alt="me" size={64} />
             <Title>Hi! I am Vladimir and I can do something sometimes :)</Title>
           </Horizontalbar>
+
           <Horizontalbar>
-            <p>📍 From Novosibirsk, Russia</p>
+            <Center>
+              <p>📍 From Novosibirsk, Russia</p>
+            </Center>
           </Horizontalbar>
           <Horizontalbar>
-            <ButtonLink href="https://github.com/leerov" external>GitHub</ButtonLink>
-            <ButtonLink href="https://t.me/leerov" external>Telegram</ButtonLink>
-            <ButtonLink href="https://lichess.org/@/Leerov" external>Lichess</ButtonLink>
+            <Center>
+              <ButtonLink href="https://github.com/leerov" external>GitHub</ButtonLink>
+              <ButtonLink href="https://t.me/leerov" external>Telegram</ButtonLink>
+              <ButtonLink href="https://lichess.org/@/Leerov" external>Lichess</ButtonLink>
+            </Center>
           </Horizontalbar>
-          <br />
         </Card>
       </ContentOnPage>
     </Page>
