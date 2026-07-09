@@ -1,0 +1,52 @@
+.ribbon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.content {
+  position: absolute;
+  top: 30px;
+  right: -30px;
+  transform: rotate(45deg);
+  background: #ffcc00;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #ffcc00,
+    #ffcc00 10px,
+    #000 10px,
+    #000 20px
+  );
+  color: #000;
+  padding: 6px 40px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.text {
+  color: #000;
+  text-shadow: 0 0 2px #fff;
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+.githubLink svg {
+  fill: #000;
+  width: 20px;
+  height: 20px;
+}
