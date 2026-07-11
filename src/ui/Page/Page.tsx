@@ -12,7 +12,7 @@ interface PageProps {
 export default function Page({ title, children, variant = 'default', className = '' }: PageProps) {
   return (
     <main
-      className={`${styles.main} ${styles[variant] || styles.default} ${className}`}
+      className={`${styles.main} ${styles.home} ${className}`}
     >
       <Header title={title} />
       {children}
