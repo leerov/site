@@ -1,7 +1,7 @@
 import Page from "@/ui/Page/Page";
 
 export const metadata = {
-  title: "Games",
+  title: "Games - Leerov",
   description: "Personal site",
 };
 

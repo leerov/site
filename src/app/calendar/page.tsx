@@ -1,7 +1,7 @@
 import Page from "@/ui/Page/Page";
 
 export const metadata = {
-  title: "Calendar",
+  title: "Calendar - Leerov",
   description: "Personal site",
 };
   

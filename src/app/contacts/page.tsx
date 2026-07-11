@@ -9,7 +9,7 @@ import Spacer from '@/ui/Spacer/Spacer';
 import Divider from '@/ui/Divider/Divider';
 
 export const metadata = {
-  title: 'Contacts',
+  title: 'Contacts - Leerov',
   description: 'Personal site',
 };
 
@@ -20,10 +20,6 @@ export default function Contacts() {
         <Card>
           <FillWidth>
             <Verticalbar>
-              <Title>My Contacts</Title>
-              <Spacer />
-              <Divider />
-              <Spacer />
               <p><strong>Phone:</strong> <a href="tel:+79831261885">+7 (983) 126-18-85</a></p>
               <p><strong>Email:</strong> <a href="mailto:ZhmulevVV@gmail.com">ZhmulevVV@gmail.com</a></p>
               <p><strong>Telegram:</strong> <a href="https://t.me/harveyfa">@harveyfa</a></p>

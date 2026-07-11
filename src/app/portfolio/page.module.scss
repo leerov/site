@@ -10,3 +10,10 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   }
 }
+
+.scrollContainer {
+  overflow-y: auto;
+  max-height: 100%;
+  padding-right: 0.5rem;
+  width: 100%;
+}
