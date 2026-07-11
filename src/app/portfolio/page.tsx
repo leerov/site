@@ -30,6 +30,26 @@ const projects = [
     slug: 'project-delta',
     image: 'https://picsum.photos/seed/delta/400/300',
   },
+  {
+    title: 'Project Epsilon',
+    slug: 'project-epsilon',
+    image: 'https://picsum.photos/seed/epsilon/400/300',
+  },
+  {
+    title: 'Project Zeta',
+    slug: 'project-zeta',
+    image: 'https://picsum.photos/seed/zeta/400/300',
+  },
+  {
+    title: 'Project Eta',
+    slug: 'project-eta',
+    image: 'https://picsum.photos/seed/eta/400/300',
+  },
+  {
+    title: 'Project Theta',
+    slug: 'project-theta',
+    image: 'https://picsum.photos/seed/theta/400/300',
+  },
 ];
 
 export const metadata = {
