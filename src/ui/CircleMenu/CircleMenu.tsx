@@ -1,7 +1,6 @@
 // CircleMenu.tsx
 "use client";
 
-import Image from "next/image";
 import styles from "./CircleMenu.module.scss";
 import { Yanone_Kaffeesatz } from "next/font/google";
 import Link from "next/link";
@@ -72,12 +71,12 @@ export default function CircleMenu({ menuItems }: CircleMenuProps) {
 						}}
 					>
 						<Link className={styles.page_links} href={item.href}>
-							<Image
+							<img
 								src={item.icon}
 								alt={item.label}
-								width={100} // указываем размеры явно
+								width={100}
 								height={100}
-								style={{ maxWidth: '50%', height: 'auto' }} // или укажи fill и objectFit
+								style={{ maxWidth: '50%', height: 'auto' }}
 							/>
 							<h4 className={`${yanone_Kaffeesatz.className} ${styles.buttonText}`}>{item.label}</h4>
 						</Link>

@@ -1,7 +1,6 @@
 // Circle.tsx
 "use client";
 
-import Image from "next/image";
 import styles from "./page.module.scss";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -34,7 +33,7 @@ export default function Circle() {
             }
           }}
         >
-          <Image src="cancel.svg" alt="cancel" width={30} height={30} />
+          <img src="cancel.svg" alt="cancel" width={30} height={30} />
         </Link>
       </div>
     </main>
