@@ -5,9 +5,20 @@
   grid-template-rows: 1fr;
   min-height: 100vh;
   padding: 1rem;
+  overflow: hidden; /* Prevent children from overflowing */
 }
 
 .home {
   grid-template-rows: 4rem 1fr;
   gap: 1rem;
+}
+
+.contentWrapper {
+  overflow-y: auto;
+  height: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 }

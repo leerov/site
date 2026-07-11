@@ -15,7 +15,9 @@ export default function Page({ title, children, variant = 'default', className =
       className={`${styles.main} ${styles.home} ${className}`}
     >
       <Header title={title} />
-      {children}
+      <div className={styles.contentWrapper}>
+        {children}
+      </div>
     </main>
   );
 }
