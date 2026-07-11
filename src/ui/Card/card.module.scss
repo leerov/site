@@ -10,7 +10,12 @@
     padding-right: 0;
     background: $card-gradient;
     border-radius: 1rem;
-    overflow-y: hidden;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
 }
 
 .content_box {

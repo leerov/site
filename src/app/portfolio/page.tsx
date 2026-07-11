@@ -37,7 +37,7 @@ export const metadata = {
   description: 'Personal site',
 };
 
-export default function Resources() {
+export default function Portfolio() {
   return (
     <Page title="Portfolio">
       <ContentOnPage>
