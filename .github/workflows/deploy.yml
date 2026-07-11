@@ -13,34 +13,44 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build static site
+        run: bun run build
+
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Deploy on server
+      - name: Deploy static files and restart server
         run: |
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }}" \
+            ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/leerov/
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            set -e
-            # Установка Bun, если не установлен
-            if ! command -v bun &> /dev/null; then
-              echo "Bun not found, installing..."
-              curl -fsSL https://bun.sh/install | bash
-              export PATH="$HOME/.bun/bin:$PATH"
+            # Перезапуск PM2-сервера, если он запущен
+            if command -v pm2 &> /dev/null; then
+              pm2 restart leerov-site > /dev/null 2>&1 || true
+              pm2 save > /dev/null 2>&1 || true
+              echo "PM2 server restarted."
+            else
+              echo "PM2 not installed, skipping server restart."
             fi
-            # Установка PM2, если не установлен
-            if ! command -v pm2 &> /dev/null; then
-              echo "PM2 not found, installing..."
-              bun install -g pm2
-            fi
-            cd /home/leerov/site
-            git pull origin main
-            bun install
-            bun run build
-            rsync -av --delete out/ /var/www/leerov/
-            # Перезапуск сервера через PM2
-            echo "Restarting server via PM2..."
-            pm2 restart leerov-site > /dev/null 2>&1 || pm2 start bun --name leerov-site -- run dev > /dev/null 2>&1
-            pm2 save > /dev/null 2>&1
-            echo "Deployment completed successfully."
           EOF
