@@ -37,4 +37,11 @@ jobs:
             bun install
             bun run build
             rsync -av --delete out/ /var/www/leerov/
+            # Перезапуск сервера через Makefile (если используется)
+            if [ -f Makefile ]; then
+              echo "Restarting server via make..."
+              make restart
+            else
+              echo "Makefile not found, skipping server restart."
+            fi
           EOF
