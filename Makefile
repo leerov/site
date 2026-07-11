@@ -28,7 +28,8 @@ stop:
 # Перезапуск сервера
 restart:
 	@echo "Restarting server..."
-	pm2 restart $(APP_NAME)
+	pm2 restart $(APP_NAME) > /dev/null 2>&1 || pm2 start bun --name $(APP_NAME) -- run dev > /dev/null 2>&1
+	pm2 save > /dev/null 2>&1
 
 # Статус сервера
 status:

@@ -32,16 +32,19 @@ jobs:
               curl -fsSL https://bun.sh/install | bash
               export PATH="$HOME/.bun/bin:$PATH"
             fi
+            # Установка PM2, если не установлен
+            if ! command -v pm2 &> /dev/null; then
+              echo "PM2 not found, installing..."
+              bun install -g pm2
+            fi
             cd /home/leerov/site
             git pull origin main
             bun install
             bun run build
             rsync -av --delete out/ /var/www/leerov/
-            # Перезапуск сервера через Makefile (если используется)
-            if [ -f Makefile ]; then
-              echo "Restarting server via make..."
-              make restart
-            else
-              echo "Makefile not found, skipping server restart."
-            fi
+            # Перезапуск сервера через PM2 (без Makefile для надежности)
+            echo "Restarting server via PM2..."
+            pm2 restart leerov-site > /dev/null 2>&1 || pm2 start bun --name leerov-site -- run dev > /dev/null 2>&1
+            pm2 save > /dev/null 2>&1
+            echo "Deployment completed successfully."
           EOF
