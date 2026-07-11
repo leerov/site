@@ -16,6 +16,14 @@ body {
   background-color: $background-color;
 }
 
+body {
+  font-family: inherit; /* наследуем от html, где установлен Hack */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-yanone), cursive;
+}
+
 a {
   color: inherit;
   text-decoration: none;
