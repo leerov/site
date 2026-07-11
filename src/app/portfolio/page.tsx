@@ -44,24 +44,24 @@ export default function Portfolio() {
         <Card>
           <FillWidth>
             <Verticalbar>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem', width: '100%' }}>
-                {projects.map((project) => (
-                  <Link href={`/articles/${project.slug}`} key={project.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <div className={styles.projectCard}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        width={400}
-                        height={300}
-                        style={{ width: '100%', height: 'auto', display: 'block' }}
-                      />
-                      <div style={{ padding: '0.75rem', textAlign: 'center', background: 'rgba(0,0,0,0.3)' }}>
-                        <h3 style={{ margin: 0 }}>{project.title}</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.5rem', width: '100%' }}>
+                  {projects.map((project) => (
+                    <Link href={`/articles/${project.slug}`} key={project.slug} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <div className={styles.projectCard}>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          width={400}
+                          height={300}
+                          style={{ width: '100%', height: 'auto', display: 'block' }}
+                        />
+                        <div style={{ padding: '0.75rem', textAlign: 'center', background: 'rgba(0,0,0,0.3)' }}>
+                          <h3 style={{ margin: 0 }}>{project.title}</h3>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+                    </Link>
+                  ))}
+                </div>
             </Verticalbar>
           </FillWidth>
         </Card>

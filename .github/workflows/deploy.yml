@@ -13,31 +13,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
-      - name: Cache Bun dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.bun/install/cache
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-
-      - name: Install dependencies
-        run: bun install
-
-      - name: Remove server-side API routes
-        run: rm -rf src/app/api
-
-      - name: Build static site
-        run: bun run build
-
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.8.0
         with:
@@ -47,7 +22,13 @@ jobs:
         run: |
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Deploy static files
+      - name: Deploy on server
         run: |
-          rsync -avz --delete -e "ssh -p ${{ secrets.SSH_PORT }}" \
-            ./out/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/leerov/
+          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            set -e
+            cd /home/leerov/site
+            git pull origin main
+            bun install
+            bun run build
+            rsync -av --delete out/ /var/www/leerov/
+          EOF
