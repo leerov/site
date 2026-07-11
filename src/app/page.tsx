@@ -35,6 +35,16 @@ export default function Home() {
             <SocialIcons />
             <Spacer></Spacer>
             <Divider></Divider>
+            <Spacer></Spacer>
+            <div style={{ padding: '0 1rem' }}>
+              <p style={{ textIndent: '2em' }}>This is my personal website where you can:</p>
+              <ul style={{ paddingLeft: '1.5rem', margin: 0 }}>
+                <li>view my work</li>
+                <li>get my current contact information</li>
+                <li>learn about my current activities</li>
+                <li>access the educational materials I have created in various subject areas</li>
+              </ul>
+            </div>
           </FillWidth>
         </Card>
       </ContentOnPage>

@@ -10,7 +10,7 @@ import CircleMenu from "@/ui/CircleMenu/CircleMenu";
 const menuItems = [
   { href: "/", label: "Home", icon: "home.svg" },
   { href: "/contacts", label: "Contacts", icon: "contacts.svg" },
-  { href: "/resources", label: "Resources", icon: "resources.svg" },
+{ href: "/resources", label: "Portfolio", icon: "resources.svg" },
   { href: "/games", label: "Games", icon: "games.svg" },
   { href: "/articles", label: "Articles", icon: "articles.svg" },
   { href: "/photos", label: "Photos", icon: "photos.svg" },
