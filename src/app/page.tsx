@@ -9,6 +9,7 @@ import ButtonLink from '@/ui/ButtonLink/ButtonLink';
 import ContentOnPage from '@/ui/PageContent/ContentOnPage';
 import Spacer from '@/ui/Spacer/Spacer';
 import Divider from '@/ui/Divider/Divider';
+import FillWidth from '@/ui/FillWidth/FillWidth';
 
 export const metadata = {
   title: {
@@ -23,32 +24,34 @@ export default function Home() {
     <Page title="Home" variant="home">
       <ContentOnPage>
         <Card>
-          <Horizontalbar>
-            <Avatar src="https://gravatar.com/userimage/268007450/e407f21c2b0cd306e1f0959df9fdef97.jpeg?size=524" alt="me" size={64} />
-            <Title>Hi! I am Vladimir and I can do something sometimes :)</Title>
-          </Horizontalbar>
-          <Spacer></Spacer>
-          <Divider></Divider>
-          <Spacer></Spacer>
-          <Horizontalbar>
-            <Center>
-              <p>📍 From Novosibirsk, Russia</p>
-            </Center>
-          </Horizontalbar>
-          <Spacer></Spacer>
-          <Divider></Divider>
-          <Spacer></Spacer>
+          <FillWidth>
+            <Horizontalbar>
+              <Avatar src="https://gravatar.com/userimage/268007450/e407f21c2b0cd306e1f0959df9fdef97.jpeg?size=524" alt="me" size={64} />
+              <Title>Hi! I am Vladimir and I can do something sometimes :)</Title>
+            </Horizontalbar>
+            <Spacer></Spacer>
+            <Divider></Divider>
+            <Spacer></Spacer>
+            <Horizontalbar>
+              <Center>
+                <p>📍 From Novosibirsk, Russia</p>
+              </Center>
+            </Horizontalbar>
+            <Spacer></Spacer>
+            <Divider></Divider>
+            <Spacer></Spacer>
 
-          <Horizontalbar>
-            <Center>
-              <ButtonLink href="https://github.com/leerov" external>GitHub</ButtonLink>
-              <ButtonLink href="https://t.me/leerov" external>Telegram</ButtonLink>
-              <ButtonLink href="https://lichess.org/@/Leerov" external>Lichess</ButtonLink>
-            </Center>
-          </Horizontalbar>
-          <Spacer></Spacer>
-          <Divider></Divider>
-          <Spacer></Spacer>
+            <Horizontalbar>
+              <Center>
+                <ButtonLink href="https://github.com/leerov" external>GitHub</ButtonLink>
+                <ButtonLink href="https://t.me/leerov" external>Telegram</ButtonLink>
+                <ButtonLink href="https://lichess.org/@/Leerov" external>Lichess</ButtonLink>
+              </Center>
+            </Horizontalbar>
+            <Spacer></Spacer>
+            <Divider></Divider>
+            <Spacer></Spacer>
+          </FillWidth>
         </Card>
       </ContentOnPage>
     </Page>

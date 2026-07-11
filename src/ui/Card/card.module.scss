@@ -2,6 +2,7 @@
 
 .card {
     display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     height: 100%;
@@ -10,11 +11,19 @@
     background: $card-gradient;
     border-radius: 1rem;
     overflow-y: hidden;
+}
 
+.content_box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .content {
-    display: grid;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: justify;
     padding: 1rem;
 }
