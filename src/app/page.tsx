@@ -5,11 +5,11 @@ import Card from '../ui/Card/card';
 import Horizontalbar from '../ui/Horizontalbar/horizontalbar';
 import Title from '../ui/Title/Title';
 import Avatar from '@/ui/Avatar/Avatar';
-import ButtonLink from '@/ui/ButtonLink/ButtonLink';
 import ContentOnPage from '@/ui/PageContent/ContentOnPage';
 import Spacer from '@/ui/Spacer/Spacer';
 import Divider from '@/ui/Divider/Divider';
 import FillWidth from '@/ui/FillWidth/FillWidth';
+import SocialIcons from '@/ui/SocialIcons/SocialIcons';
 
 export const metadata = {
   title: {
@@ -32,25 +32,9 @@ export default function Home() {
             <Spacer></Spacer>
             <Divider></Divider>
             <Spacer></Spacer>
-            <Horizontalbar>
-              <Center>
-                <p>📍 From Novosibirsk, Russia</p>
-              </Center>
-            </Horizontalbar>
+            <SocialIcons />
             <Spacer></Spacer>
             <Divider></Divider>
-            <Spacer></Spacer>
-
-            <Horizontalbar>
-              <Center>
-                <ButtonLink href="https://github.com/leerov" external>GitHub</ButtonLink>
-                <ButtonLink href="https://t.me/leerov" external>Telegram</ButtonLink>
-                <ButtonLink href="https://lichess.org/@/Leerov" external>Lichess</ButtonLink>
-              </Center>
-            </Horizontalbar>
-            <Spacer></Spacer>
-            <Divider></Divider>
-            <Spacer></Spacer>
           </FillWidth>
         </Card>
       </ContentOnPage>
