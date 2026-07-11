@@ -26,6 +26,12 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             set -e
+            # Установка Bun, если не установлен
+            if ! command -v bun &> /dev/null; then
+              echo "Bun not found, installing..."
+              curl -fsSL https://bun.sh/install | bash
+              export PATH="$HOME/.bun/bin:$PATH"
+            fi
             cd /home/leerov/site
             git pull origin main
             bun install
